@@ -1,0 +1,7 @@
+Flujo de trabajo
+
+git status
+git add .
+git commit -m "Actualizo diseño del libro"
+git push
+

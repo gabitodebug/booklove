@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.16), transparent 34%),
+    linear-gradient(135deg, #130f24, #261333 55%, #120914);
+  color: #fffaf4;
+  overflow-x: hidden;
+}
+
+.collage-page {
+  min-height: 100vh;
+  padding: 34px 18px 50px;
+}
+
+.collage-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 20px;
+}
+
+.collage-header h1 {
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  color: #fff2f7;
+  margin-bottom: 10px;
+}
+
+.collage-header p {
+  font-size: 1.05rem;
+  color: #ead6df;
+  margin-bottom: 16px;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #fff1f6;
+  color: #391a2b;
+  text-decoration: none;
+  font-size: 0.95rem;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.back-btn:hover {
+  background: #ffffff;
+}
+
+/* Mural compacto con superposición */
+.collage-grid {
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  height: 920px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: visible;
+}
+
+/* Cada elemento respeta formato vertical 9:16 */
+.collage-item {
+  position: absolute;
+  width: 125px;
+  aspect-ratio: 9 / 16;
+  background: #fffaf4;
+  border: 5px solid #fffaf4;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.18);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+  cursor: pointer;
+}
+
+.collage-item:hover {
+  transform: scale(1.16) rotate(0deg) !important;
+  z-index: 200 !important;
+  box-shadow:
+    0 32px 70px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+  filter: brightness(1.05);
+}
+
+.collage-item img,
+.collage-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Videos con borde levemente distinto */
+.video-item {
+  border-color: #f6dce8;
+}
+
+/* Variantes de tamaño */
+.size-small {
+  width: 105px;
+}
+
+.size-normal {
+  width: 125px;
+}
+
+.size-large {
+  width: 145px;
+}
+
+.size-xl {
+  width: 165px;
+}
+
+/* Responsive tablet */
+@media (max-width: 900px) {
+  .collage-grid {
+    width: 96vw;
+    height: 980px;
+  }
+
+  .collage-item {
+    width: 125px;
+  }
+
+  .size-small {
+    width: 105px;
+  }
+
+  .size-normal {
+    width: 125px;
+  }
+
+  .size-large {
+    width: 145px;
+  }
+
+  .size-xl {
+    width: 160px;
+  }
+}
+
+/* Responsive celular */
+@media (max-width: 560px) {
+  .collage-page {
+    padding: 24px 10px 40px;
+  }
+
+  .collage-header {
+    margin-bottom: 14px;
+  }
+
+  .collage-grid {
+    width: 98vw;
+    height: 1550px;
+  }
+
+  .collage-item {
+    width: 96px;
+    border-width: 4px;
+    border-radius: 13px;
+  }
+
+  .size-small {
+    width: 82px;
+  }
+
+  .size-normal {
+    width: 96px;
+  }
+
+  .size-large {
+    width: 110px;
+  }
+
+  .size-xl {
+    width: 124px;
+  }
+
+  .collage-item:hover {
+    transform: scale(1.08) rotate(0deg) !important;
+  }
+}
